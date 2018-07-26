@@ -1,0 +1,3 @@
+# puppet-postfix module
+## this module requires that you know postfix as it only manages 
+key -> value on main.cf

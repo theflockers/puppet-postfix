@@ -1,0 +1,11 @@
+###############################################################
+#                           WARNING
+#--------------------------------------------------------------
+# This file is managed by puppet. All your changes on this file
+# will be gone after agent runs again.
+#
+#--------------------------------------------------------------
+# server identification
+<% @config.each do | param, value | %>
+<%= param %> = <%= value -%>
+<% end %>

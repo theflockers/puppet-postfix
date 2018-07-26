@@ -1,0 +1,27 @@
+###############################################################
+#                           WARNING
+#--------------------------------------------------------------
+# This file is managed by puppet. All your changes on this file
+# will be gone after agent runs again.
+#
+#--------------------------------------------------------------
+# server identification
+myorigin            = <%= @mailname %>
+mydestination       = <%= @mailname %>, localhost.localdomain, localhost
+
+# which networks are allowed to send messages?
+mynetworks          = <%= @mynetworks %>
+
+# milters
+<% if @milter_dkim_addr != '' -%>
+smtpd_milters       = <%= @milter_dkim_addr %>
+<% end -%>
+
+# misc
+mailbox_size_limit  = 0
+recipient_delimiter = +
+inet_interfaces     = all
+inet_protocols      = ipv4
+<% if @nocompat -%>
+compatibility_level = 2
+<% end -%>
