@@ -4,6 +4,7 @@ class postfix::config inherits postfix {
   # merge default parameters with the given parameters
   $config = deep_merge($maincf, $postfix::params::defaults)
 
+  notice($config)
   # render
   file { '/etc/postfix/main.cf':
     ensure  => file,
