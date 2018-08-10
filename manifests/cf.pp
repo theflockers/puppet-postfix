@@ -14,7 +14,7 @@ class postfix::cf (
   $transports = deep_merge($master, $postfix::params::default_transports)
   file { '/etc/postfix/master.cf':
     ensure  => file,
-    content => template('postfix/master.cf.dynamic.erb'),
+    content => template('postfix/master.cf.erb'),
     notify  => Service['postfix']
   }
 
