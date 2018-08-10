@@ -67,7 +67,7 @@ class postfix::params {
       'args'    => ''
     },
     {
-      'name'    => 'trivial',
+      'name'    => 'rewrite',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
