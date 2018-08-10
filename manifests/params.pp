@@ -232,7 +232,7 @@ class postfix::params {
       'args'    => ''
     },
     {
-      'name'    => 'virtual'
+      'name'    => 'virtual',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => 'n',
