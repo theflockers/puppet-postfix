@@ -10,8 +10,9 @@ class postfix::params {
   }
 
 # service type  private unpriv  chroot  wakeup  maxproc command + args
-  $default_transports = {
-    'smtp' => {
+  $default_transports = [
+    {
+      'name'    => 'smtp',
       'type'    => 'inet',
       'private' => 'n',
       'unpriv'  => '-',
@@ -21,7 +22,8 @@ class postfix::params {
       'command' => 'smtpd',
       'args'    => ''
     },
-    'pickup' => {
+    {
+      'name'    => 'pickup',
       'type'    => 'unix',
       'private' => 'n',
       'unpriv'  => '-',
@@ -31,7 +33,8 @@ class postfix::params {
       'command' => 'pickup',
       'args'    => ''
     },
-    'cleanup' => {
+    {
+      'name'    => 'cleanup',
       'type'    => 'unix',
       'private' => 'n',
       'unpriv'  => '-',
@@ -41,7 +44,8 @@ class postfix::params {
       'command' => 'cleanup',
       'args'    => ''
     },
-    'qmgr' => {
+    {
+      'name'    => 'qmgr',
       'type'    => 'unix',
       'private' => 'n',
       'unpriv'  => '-',
@@ -51,7 +55,8 @@ class postfix::params {
       'command' => 'qmgr',
       'args'    => ''
     },
-    'tlsmgr' => {
+    {
+      'name'    => 'tlsmgr',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -61,7 +66,8 @@ class postfix::params {
       'command' => 'tlsmgr',
       'args'    => ''
     },
-    'rewrite' => {
+    {
+      'name'    => 'trivial',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -71,7 +77,8 @@ class postfix::params {
       'command' => 'trivial-rewrite',
       'args'    => ''
     },
-    'bounce' => {
+    {
+      'name'    => 'bounce',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -81,7 +88,8 @@ class postfix::params {
       'command' => 'bounce',
       'args'    => ''
     },
-    'defer' => {
+    {
+      'name'    => 'defer',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -91,7 +99,8 @@ class postfix::params {
       'command' => 'bounce',
       'args'    => ''
     },
-    'trace' => {
+    {
+      'name'    => 'trace',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -101,7 +110,8 @@ class postfix::params {
       'command' => 'bounce',
       'args'    => ''
     },
-    'verify' => {
+    {
+      'name'    => 'verify',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -111,7 +121,8 @@ class postfix::params {
       'command' => 'verify',
       'args'    => ''
     },
-    'flush' => {
+    {
+      'name'    => 'flush',
       'type'    => 'unix',
       'private' => 'n',
       'unpriv'  => '-',
@@ -121,7 +132,8 @@ class postfix::params {
       'command' => 'flush',
       'args'    => ''
     },
-    'proxymap' => {
+    {
+      'name'    => 'proxymap',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -131,7 +143,8 @@ class postfix::params {
       'command' => 'proxymap',
       'args'    => ''
     },
-    'proxywrite' => {
+    {
+      'name'    => 'proxywrite',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -141,7 +154,8 @@ class postfix::params {
       'command' => 'proxymap',
       'args'    => ''
     },
-    'smtp' => {
+    {
+      'name'    => 'smtp',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -151,7 +165,8 @@ class postfix::params {
       'command' => 'smtp',
       'args'    => ''
     },
-    'relay' => {
+    {
+      'name'    => 'relay',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -161,7 +176,8 @@ class postfix::params {
       'command' => 'smtp',
       'args'    => ''
     },
-    'showq' => {
+    {
+      'name'    => 'showq',
       'type'    => 'unix',
       'private' => 'n',
       'unpriv'  => '-',
@@ -171,7 +187,8 @@ class postfix::params {
       'command' => 'showq',
       'args'    => ''
     },
-    'error' => {
+    {
+      'name'    => 'error',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -181,17 +198,19 @@ class postfix::params {
       'command' => 'error',
       'args'    => ''
     },
-    'retry' => {
+    {
+      'name'    => 'retry',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
       'chroot'  => 'y',
       'wakeup'  => '-',
       'maxproc' => '-',
-      'command' => 'retry',
+      'command' => 'error',
       'args'    => ''
     },
-    'discard' => {
+    {
+      'name'    => 'discard',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -201,7 +220,8 @@ class postfix::params {
       'command' => 'discard',
       'args'    => ''
     },
-    'local' => {
+    {
+      'name'    => 'local',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => 'n',
@@ -211,7 +231,8 @@ class postfix::params {
       'command' => 'local',
       'args'    => ''
     },
-    'virtual' => {
+    {
+      'name'    => 'virtual'
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => 'n',
@@ -221,7 +242,8 @@ class postfix::params {
       'command' => 'virtual',
       'args'    => ''
     },
-    'lmtp' => {
+    {
+      'name'    => 'lmtp',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -231,7 +253,8 @@ class postfix::params {
       'command' => 'lmtp',
       'args'    => ''
     },
-    'anvil' => {
+    {
+      'name'    => 'anvil',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -241,7 +264,8 @@ class postfix::params {
       'command' => 'anvil',
       'args'    => ''
     },
-    'scache' => {
+    {
+      'name'    => 'scache',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => '-',
@@ -251,7 +275,8 @@ class postfix::params {
       'command' => 'scache',
       'args'    => ''
     },
-    'maildrop' => {
+    {
+      'name'    => 'maildrop',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => 'n',
@@ -261,7 +286,8 @@ class postfix::params {
       'command' => 'pipe',
       'args'    => '  flags=DRhu user=vmail argv=/usr/bin/maildrop -d ${recipient}'
     },
-    'uucp' => {
+    {
+      'name'    => 'uucp',
       'type'    => 'unix',
       'private' => '-',
       'unpriv'  => 'n',
@@ -271,5 +297,5 @@ class postfix::params {
       'command' => 'pipe',
       'args'    => '  flags=Fqhu user=uucp argv=uux -r -n -z -a$sender - $nexthop!rmail ($recipient)'
     },
-  }
+  ]
 }

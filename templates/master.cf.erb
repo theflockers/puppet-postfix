@@ -1,6 +1,6 @@
 # managed by puppet-postfix module
-<% @transports.each do | param, value | %>
-<%= param %>    <%= value['type'] -%>     <%= value['private'] -%>     <%= value['unpriv'] -%>     <%= value['chroot'] -%>     <%= value['wakeup'] -%>    <%= value['maxproc'] -%>    <%= value['command'] -%>
+<% @transports.each do | transport | %>
+<%= transport['name'] %>    <%= transport['type'] -%>     <%= transport['private'] -%>     <%= transport['unpriv'] -%>     <%= transport['chroot'] -%>     <%= transport['wakeup'] -%>    <%= transport['maxproc'] -%>    <%= transport['command'] -%>
 
-<%= value['args'] -%>
+<%= transport['args'] -%>
 <% end %>
