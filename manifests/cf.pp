@@ -1,7 +1,7 @@
 # 
 class postfix::cf ( 
-  Hash $main = {}, 
-  Hash $master = {}
+  Hash $main   = {}, 
+  Array $master = []
 ) {
   # merge default parameters with the given parameters
   $config = deep_merge($main, $postfix::params::defaults)
@@ -10,4 +10,12 @@ class postfix::cf (
     content => template('postfix/main.cf.dynamic.erb'),
     notify  => Service['postfix']
   }
+
+  $transports = union($master, $postfix::params::default_transports)
+  file { '/etc/postfix/master.cf':
+    ensure  => file,
+    content => template('postfix/master.cf.erb'),
+    notify  => Service['postfix']
+  }
+
 }
