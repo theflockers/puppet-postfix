@@ -1,7 +1,10 @@
 #
-class postfix::config inherits postfix {
+class postfix::config (
+  String $tempdir,
+) inherits postfix {
   class { 'postfix::cf': 
-     main   => $cf['main'],
-     master => $cf['master']
+     main    => $cf['main'],
+     master  => $cf['master'],
+     tempdir => $tempdir,
   }
 }
