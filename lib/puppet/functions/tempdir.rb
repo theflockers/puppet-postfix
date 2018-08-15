@@ -24,7 +24,7 @@ Puppet::Functions.create_function(:tempdir) do
   end
 
   def tempdir(dirname)
-    path = Dir.mkdir(dirname)
-    path
+    path = FileUtils.mkdir_p('/tmp/'+ dirname)
+    path[0]
   end
 end
