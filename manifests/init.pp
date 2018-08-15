@@ -5,9 +5,12 @@ class postfix (
   Hash $cf = {}
 ) inherits postfix::params
 {
+  $dirname = tempdir('postfix-cf')
   anchor { 'postfix::begin': }
   class { '::postfix::install': }
-  -> class { '::postfix::config':  }
-  -> class { '::postfix::service': }
+  -> class { '::postfix::config':
+    tempdir => $dirname,
+  }
+ -> class { '::postfix::service': }
   anchor { 'postfix::end': }
 }
