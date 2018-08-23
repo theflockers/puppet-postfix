@@ -13,8 +13,7 @@ class postfix::cf (
   file { "${tempdir}":
     ensure => directory,
     owner => 'postfix'
-  }
-
+  }->
   # creating configuration files in them directory
   # and checking the syntax
   file { "${tempdir}/main.cf":
