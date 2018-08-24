@@ -9,7 +9,11 @@ class postfix::cf (
 
   # merging transports
   $transports = union($master, $postfix::params::default_transports)
-
+  
+  file { "${tempdir}":
+    ensure => directory,
+    owner => 'postfix'
+  }->
   # creating configuration files in them directory
   # and checking the syntax
   file { "${tempdir}/main.cf":
