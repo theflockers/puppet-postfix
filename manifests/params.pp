@@ -95,7 +95,7 @@ class postfix::params {
       'unpriv'  => '-',
       'chroot'  => '-',
       'wakeup'  => '-',
-      'maxproc' => '-',
+      'maxproc' => '0',
       'command' => 'bounce',
       'args'    => ''
     },
